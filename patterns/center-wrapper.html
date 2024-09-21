@@ -1,0 +1,29 @@
+<!--
+# Center wrapper
+
+A basic grid layout with auto-fill.
+Inspired from Kevin Powell's "Start over-engineering your CSS" (CSS Day 2024)
+https://www.youtube.com/watch?v=k_3pRxdv-cI
+-->
+
+<div class="center-wrapper">
+  Content
+</div>
+
+<style>
+  .center-wrapper {
+    /* User settings */
+    --max-width: 1200px;
+    --gap: 2rem;
+
+    /* Implementation */
+    width: min(100% - var(--gap) * 2, var(--max-width));
+    margin-inline: auto;
+  }
+</style>
+
+<style class="demo">
+  div {
+    background-color: pink;
+  }
+</style>
