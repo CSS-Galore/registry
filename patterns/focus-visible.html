@@ -1,0 +1,23 @@
+<!--
+# Focus visible
+
+How to show different focus styles depending on whether
+the element is focused with a keyboard or mouse/touch.
+
+Based on https://css-tricks.com/the-focus-visible-trick/
+-->
+
+<button>click</button>
+
+<style>
+  /* Focusing with a keyboard. */
+  button:focus-visible {
+    outline: 4px dashed black;
+  }
+
+  /* Focusing with a mouse, touch, or stylus. */
+  button:focus:not(:focus-visible) {
+    outline: none;
+    box-shadow: 1px 1px 10px rgba(1, 1, 0, 0.7);
+  }
+</style>
