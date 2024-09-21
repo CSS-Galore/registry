@@ -1,0 +1,32 @@
+<!--
+# CSS Notch
+
+How to show the website in cover mode without conflicting with
+the iPhone's Notch.
+
+https://css-tricks.com/the-notch-and-css/
+-->
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+/>
+
+<div>
+  Content of the site
+</div>
+
+<style>
+  body {
+    padding: env(safe-area-inset-top) env(safe-area-inset-right)
+      env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+</style>
+
+<style id="demo-styles">
+  body {
+    color: white;
+    background-color: red;
+    margin: 0;
+  }
+</style>
