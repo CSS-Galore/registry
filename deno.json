@@ -1,0 +1,5 @@
+{
+  "tasks": {
+    "fmt": "deno fmt --unstable-html --unstable-css patterns"
+  }
+}

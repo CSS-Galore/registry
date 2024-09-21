@@ -1,0 +1,37 @@
+<ul class="basic-grid">
+  <li>one</li>
+  <li>two</li>
+  <li>three</li>
+  <li>four</li>
+</ul>
+
+<style>
+  .basic-grid {
+    /* User settings */
+    --column-gap: 1em;
+    --row-gap: 1em;
+    --item-min-width: 100px;
+    --item-max-width: 1fr;
+
+    /* Implementation */
+    display: grid;
+    grid-template-columns:
+      repeat(
+      auto-fill,
+      minmax(min(100%, var(--item-min-width)), var(--item-max-width))
+    );
+    column-gap: var(--column-gap);
+    row-gap: var(--row-gap);
+
+    &:where(ul, ol) {
+      list-style-type: ""; /* Remove list style without removing the role=list in Safari */
+      padding-left: 0;
+    }
+  }
+</style>
+
+<style class="demo">
+  li {
+    background-color: pink;
+  }
+</style>
