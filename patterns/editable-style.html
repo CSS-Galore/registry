@@ -1,0 +1,28 @@
+<!--
+# Editable style
+
+Make your `<style>` block elements visible and editable in your browser
+
+More info: https://css-tricks.com/books/greatest-css-tricks/editable-style-blocks/
+-->
+
+<p>I'm going to display this text.</p>
+
+<style class="editable-style" contenteditable>
+  p {
+    font-size: 2em;
+    color: red;
+    border: solid dotted blue;
+  }
+</style>
+
+<style>
+  .editable-style {
+    /* User settings */
+    --font-family: monospace;
+
+    display: block;
+    font-family: var(--font-family);
+    white-space: pre;
+  }
+</style>
