@@ -1,0 +1,59 @@
+<div class="loader-3-lines"></div>
+
+<style>
+  .loader-3-lines {
+    /* User settings */
+    --size: 100px;
+    --color: radial-gradient(red, blue);
+    --radius: var(--size);
+    --speed: 0.5s;
+
+    display: grid;
+    place-items: center;
+    place-content: center;
+    margin: 0 calc(var(--size) / 2);
+
+    &::before,
+    &::after {
+      content: "";
+      grid-area: 1/1;
+    }
+
+    &::before {
+      --_position: -1;
+    }
+
+    &::after {
+      --_position: 1;
+    }
+
+    &,
+    &::before,
+    &::after {
+      height: var(--size);
+      width: calc(var(--size) / 5);
+      border-radius: var(--radius);
+      background: var(--color) calc(50% + var(--_position, 0) * 50%);
+      background-size: var(--size) var(--size);
+      transform: translate(calc(var(--_position, 0) * 200%));
+      animation: loader-3-lines var(--speed) infinite alternate
+        calc(var(--_position, 0) * (var(--speed) / 2)) both;
+    }
+  }
+
+  @keyframes loader-3-lines {
+    from {
+      height: calc(var(--size) / 2);
+    }
+  }
+</style>
+
+<style id="demo-styles">
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    height: 100vh;
+  }
+</style>
