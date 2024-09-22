@@ -1,0 +1,69 @@
+<!--
+# Loader: 3 dots
+
+Pure CSS loader made with a single element.
+
+More info: https://css-tricks.com/single-element-loaders-the-dots/
+-->
+
+<div class="loader-3-dots"></div>
+
+<style>
+  .loader-3-dots {
+    /* User settings */
+    --size: 40px;
+    --color: pink;
+    --speed: 1.2s;
+
+    /* Implementation */
+    display: grid;
+
+    &::before,
+    &::after {
+      content: "";
+      grid-area: 1/1;
+    }
+
+    &::before {
+      --_position: -1;
+    }
+
+    &::after {
+      --_position: 1;
+    }
+
+    &,
+    &::before,
+    &::after {
+      width: var(--size);
+      aspect-ratio: 0.5;
+      background: radial-gradient(var(--color) 68%, #0000 72%) center/100% 50%
+        no-repeat;
+      transform: translate(calc(var(--_position, 0) * 150%));
+      animation: loader-3-dots var(--speed) infinite linear
+        calc(var(--_position, 0) * (var(--speed) - 0.2s));
+    }
+  }
+
+  @keyframes loader-3-dots {
+    20% {
+      background-position: top;
+    }
+    40% {
+      background-position: bottom;
+    }
+    60% {
+      background-position: center;
+    }
+  }
+</style>
+
+<style id="demo-styles">
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    height: 100vh;
+  }
+</style>

@@ -1,0 +1,32 @@
+<!--
+# Multiline text truncation using fade effect
+
+More info: https://css-tricks.com/recreating-mdns-truncated-text-effect/
+Version using mask: https://codepen.io/t_afif/pen/jOzamEB
+-->
+
+<p class="fade-truncation">
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore consectetur
+  temporibus quae aliquam nobis nam accusantium, minima quam iste magnam autem
+  neque laborum nulla esse cupiditate modi impedit sapiente vero?
+</p>
+
+<style>
+  .fade-truncation {
+    /* User settings */
+    --lines: 3;
+
+    /* Implementation */
+    max-height: calc(1lh * var(--lines));
+    overflow: hidden;
+    mask:
+      linear-gradient(#000 0 0) top/100% calc(100% - 1lh) no-repeat,
+       linear-gradient(to left, #0000, #000 80%) bottom / 100% 1lh no-repeat;
+  }
+</style>
+
+<style id="demo-styles">
+  .fade-truncation {
+    max-width: 35ch;
+  }
+</style>

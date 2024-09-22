@@ -1,0 +1,36 @@
+<!--
+# Hover efect: animated underline
+
+Pure CSS loader made with a single element.
+
+Inspired from: https://css-tricks.com/cool-hover-effects-that-use-css-text-shadow/
+-->
+
+<a href="#" class="hover-animated-underline">Hover me</a>
+
+<style>
+  .hover-animated-underline {
+    /* User settings */
+    --color: currentColor;
+    --weight: 1px;
+    --speed: 0.3s;
+
+    /* Implementation */
+    --_position: 200%;
+    background: linear-gradient(var(--color) 0 0) no-repeat var(--_position)
+      100%/200% var(--weight);
+    transition: background-position var(--speed);
+
+    &:hover {
+      --_position: 100%;
+    }
+  }
+</style>
+
+<style id="demo-styles">
+  .hover-animated-underline {
+    text-decoration: none;
+    font-size: 2em;
+    color: red;
+  }
+</style>
