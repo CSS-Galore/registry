@@ -1,0 +1,38 @@
+<!--
+# Center horizontally and vertically content
+
+A basic layout to center in the window all content.
+-->
+
+<body class="center-body">
+  <p>This is the content</p>
+</body>
+
+<style>
+  .center-body {
+    /* User settings */
+    --max-width: 500px;
+    --margin-inline: 2rem;
+    --margin-block: 2rem;
+
+    /* Implementation */
+    box-sizing: border-box;
+    min-height: calc(100lvh - var(--margin-block) * 2);
+    margin-block: var(--margin-block);
+    margin-inline: var(--margin-inline);
+    display: grid;
+    grid-template-columns: minmax(0, var(--max-width));
+    justify-content: center;
+    align-content: center;
+  }
+</style>
+
+<style id="demo-styles">
+  .center-body {
+    background-color: pink;
+  }
+  p {
+    border: solid 1px;
+    margin: 0;
+  }
+</style>
