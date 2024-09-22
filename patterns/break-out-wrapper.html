@@ -1,0 +1,52 @@
+<!--
+# Break out wrapper
+
+Wrapper that allows to add full width elements
+Inspired by https://css-irl.info/breaking-out-of-a-central-wrapper/
+-->
+
+<div class="break-out-wrapper">
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+  <p class="full-width">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+  </p>
+</div>
+
+<style>
+  .break-out-wrapper {
+    /* User settings */
+    --max-width: 70rem;
+    --gap: 2rem;
+
+    display: grid;
+    column-gap: var(--gap);
+    justify-content: space-between;
+    grid-template-columns:
+      [full-start] 0 [content-start] minmax(
+      0,
+      var(--max-width)
+    ) [content-end] 0 [full-end];
+
+    > * {
+      grid-column: content;
+    }
+
+    > .full-width {
+      grid-column: full;
+    }
+  }
+</style>
+
+<style id="demo-styles">
+  body {
+    margin: 0;
+  }
+  .full-width {
+    background-color: pink;
+  }
+  p {
+    border: solid 1px;
+    padding-block: 1em;
+  }
+</style>
