@@ -1,0 +1,80 @@
+<!--
+# Scroll shadows
+
+Use shadows to reveal scroll with more info
+
+More info: https://css-tricks.com/books/greatest-css-tricks/scroll-shadows/
+-->
+
+<ul class="scroll-shadows">
+  <li>Lorem, ipsum.</li>
+  <li>Eligendi, repudiandae.</li>
+  <li>Dolor, vel.</li>
+  <li>Obcaecati, praesentium.</li>
+  <li>Impedit, tenetur.</li>
+  <li>Exercitationem, repellat!</li>
+  <li>Aut, asperiores!</li>
+  <li>Dolor, fuga.</li>
+  <li>Ab, aliquid!</li>
+  <li>Adipisci, totam.</li>
+  <li>Error, dicta.</li>
+  <li>Saepe, vero?</li>
+  <li>Eveniet, dolorem!</li>
+  <li>Id, tempora!</li>
+  <li>Voluptate, consectetur?</li>
+  <li>Voluptatibus, omnis.</li>
+  <li>Eius, fugit.</li>
+  <li>Quia, non!</li>
+  <li>At, laudantium?</li>
+  <li>Commodi, maiores!</li>
+</ul>
+
+<style>
+  .scroll-shadows {
+    /* User settings */
+    --background-color: white;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --shadow-size: 10px;
+
+    max-height: 200px;
+    overflow: auto;
+
+    background: /* Shadow Cover TOP */
+      linear-gradient(var(--background-color) 30%, transparent) center top,
+       /* Shadow Cover BOTTOM */
+      linear-gradient(transparent, var(--background-color) 70%) center bottom,
+       /* Shadow TOP */
+      radial-gradient(
+        farthest-side at 50% 0,
+        var(--shadow-color),
+        transparent
+      ) center top,
+       /* Shadow BOTTOM */
+      radial-gradient(
+        farthest-side at 50% 100%,
+        var(--shadow-color),
+        transparent
+      ) center bottom;
+
+    background-repeat: no-repeat;
+    background-size:
+      100% calc(var(--shadow-size) * 4),
+      100% calc(var(--shadow-size) * 4),
+      100% var(--shadow-size),
+      100% var(--shadow-size);
+    background-attachment: local, local, scroll, scroll;
+  }
+</style>
+
+<style id="demo-styles">
+  .scroll-shadows {
+    list-style: none;
+    max-width: 300px;
+    margin: 2em;
+    padding: 0;
+
+    > * {
+      padding: 0.2rem;
+    }
+  }
+</style>
