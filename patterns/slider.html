@@ -1,0 +1,91 @@
+<!--
+# Slider control
+
+A way to custom-style the <input type="range"> element
+-->
+
+<input type="range" /> Hello world
+
+<style>
+  input[type="range"] {
+    /* User settings */
+    --color: currentColor;
+    --color-background: white;
+    --track-height: 1px;
+    --size: 1.5em;
+
+    /* Implementation */
+    margin: 0;
+    color: var(--color);
+    background-color: transparent;
+    appearance: none;
+    vertical-align: middle;
+    accent-color: var(--color);
+    height: var(--size);
+    cursor: pointer;
+
+    &::-webkit-slider-runnable-track {
+      background: var(--color);
+      border: 0;
+      width: 100%;
+      height: var(--track-height);
+    }
+
+    &::-webkit-slider-thumb {
+      margin-top: calc((-1.5em + var(--track-height)) / 2);
+      width: var(--size);
+      height: var(--size);
+      background: var(--color-background);
+      border: 1px solid var(--color);
+      border-radius: 50%;
+      cursor: pointer;
+      -webkit-appearance: none;
+    }
+
+    &:focus::-webkit-slider-runnable-track {
+      background: var(--color);
+    }
+
+    &:not(:disabled) {
+      cursor: pointer;
+
+      &:hover,
+      &:focus-visible {
+        &::-webkit-slider-thumb {
+          background: var(--color);
+        }
+      }
+    }
+
+    &:disabled {
+      opacity: 0.33;
+      pointer-events: none;
+    }
+
+    &::-moz-range-track {
+      background: var(--color);
+      border: 0;
+      width: 100%;
+      height: var(--track-height);
+    }
+
+    &::-moz-range-thumb {
+      width: var(--size);
+      height: var(--size);
+      background: var(--color-background);
+      border: 1px solid var(--color);
+      border-radius: 50%;
+      cursor: pointer;
+      box-sizing: border-box;
+    }
+
+    &:not(:disabled) {
+      &:hover,
+      &:focus-visible {
+        &::-moz-range-thumb {
+          background: var(--color);
+        }
+      }
+    }
+  }
+</style>
