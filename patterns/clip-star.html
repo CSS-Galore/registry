@@ -1,0 +1,29 @@
+<!--
+# Clipping shapes: star
+
+More info: https://www.smashingmagazine.com/2024/05/modern-guide-making-css-shapes/
+-->
+
+<div class="clip-star"></div>
+
+<style>
+  .clip-star {
+    /* Implementation */
+    aspect-ratio: 1;
+    object-fit: cover;
+    clip-path: polygon(
+      50% 0,
+      calc(50% * (1 + sin(0.4turn))) calc(50% * (1 - cos(0.4turn))),
+      calc(50% * (1 - sin(0.2turn))) calc(50% * (1 - cos(0.2turn))),
+      calc(50% * (1 + sin(0.2turn))) calc(50% * (1 - cos(0.2turn))),
+      calc(50% * (1 - sin(0.4turn))) calc(50% * (1 - cos(0.4turn)))
+    );
+  }
+</style>
+
+<style id="demo-styles">
+  div {
+    max-width: 200px;
+    background: radial-gradient(#8a9b0f, #3b8686);
+  }
+</style>

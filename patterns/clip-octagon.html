@@ -1,0 +1,29 @@
+<!--
+# Clipping shapes: octagon
+
+More info: https://www.smashingmagazine.com/2024/05/modern-guide-making-css-shapes/
+-->
+
+<div class="clip-octagon"></div>
+
+<style>
+  .clip-octagon {
+    /* Implementation */
+    --_o: calc(50% * tan(-22.5deg));
+    aspect-ratio: 1;
+    object-fit: cover;
+    clip-path: polygon(
+      var(--_o) 50%,
+      50% var(--_o),
+      calc(100% - var(--_o)) 50%,
+      50% calc(100% - var(--_o))
+    );
+  }
+</style>
+
+<style id="demo-styles">
+  div {
+    max-width: 200px;
+    background: radial-gradient(#8a9b0f, #3b8686);
+  }
+</style>

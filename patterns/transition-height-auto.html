@@ -1,0 +1,47 @@
+<!--
+# Transitioning to Height Auto
+
+A simple solution to transition to height: auto using grid
+
+More info: https://keithjgrant.com/posts/2023/04/transitioning-to-height-auto/
+-->
+
+<button onclick="this.nextElementSibling.classList.toggle('is-open')">
+  Open/Close
+</button>
+
+<div class="transition-height-auto">
+  <div>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, sunt ea
+    natus quibusdam quae praesentium commodi aliquam sint optio modi iure
+    fugiat, quis doloremque aut, nesciunt id tempore doloribus voluptates!
+  </div>
+</div>
+
+<style>
+  .transition-height-auto {
+    /* User settings */
+    --speed: 0.5s;
+
+    /* Implementation */
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows var(--speed) ease-out;
+
+    &.is-open {
+      grid-template-rows: 1fr;
+    }
+
+    > * {
+      overflow: hidden;
+    }
+  }
+</style>
+
+<style id="demo-styles">
+  .transition-height-auto {
+    border: solid 1px;
+    max-width: 200px;
+    margin-top: 1em;
+  }
+</style>

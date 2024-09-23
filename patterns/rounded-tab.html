@@ -1,0 +1,37 @@
+<!--
+# Clipping shapes: Rounded tab
+
+More info: https://www.smashingmagazine.com/2024/05/modern-guide-making-css-shapes/
+-->
+
+<div class="rounded-tab">
+  Click here
+</div>
+
+<style>
+  .rounded-tab {
+    /* User settings */
+    --radius: 1rem;
+    --background: gray;
+
+    /* Implementation */
+    border-inline: var(--radius) solid #0000;
+    border-radius: calc(2 * var(--radius)) calc(2 * var(--radius)) 0 0 / var(
+      --radius
+    );
+    background: var(--background);
+    padding: var(--radius);
+    mask:
+      radial-gradient(var(--radius) at var(--radius) 0, #0000 98%, #000 101%)
+      calc(-1 * var(--radius)) 100%/100% var(--radius) repeat-x,
+       conic-gradient(#000 0 0) padding-box;
+  }
+</style>
+
+<style id="demo-styles">
+  div {
+    text-align: center;
+    max-width: 200px;
+    font-size: 2em;
+  }
+</style>

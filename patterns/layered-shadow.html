@@ -1,0 +1,36 @@
+<!--
+# Layered shadow
+
+Create beautiful shadows by applying different layers
+
+More info: https://www.joshwcomeau.com/css/designing-shadows/
+-->
+
+<div class="layered-shadow"></div>
+
+<style>
+  .layered-shadow {
+    /* User settings */
+    --shadow-color: hsl(0deg 0% 0% / 0.075);
+
+    /* Implementation */
+    box-shadow:
+      0 1px 1px var(--shadow-color),
+      0 2px 2px var(--shadow-color),
+      0 4px 4px var(--shadow-color),
+      0 8px 8px var(--shadow-color),
+      0 16px 16px var(--shadow-color);
+  }
+</style>
+
+<style id="demo-styles">
+  body {
+    background-color: hsl(0deg 0% 0% / 0.05);
+  }
+  .layered-shadow {
+    width: 200px;
+    height: 200px;
+    border-radius: 6px;
+    background: white;
+  }
+</style>
