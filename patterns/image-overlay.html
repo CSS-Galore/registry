@@ -1,0 +1,30 @@
+<!--
+# Image overlay
+
+A way to show a gradient overaly to improve the legibility of the text
+
+More info: https://www.smashingmagazine.com/2024/01/css-border-image-property/
+-->
+
+<div class="image-overlay">
+  <h1>Hello world</h1>
+</div>
+
+<style>
+  .image-overlay {
+    /* User settings */
+    --overlay: linear-gradient(#0001, #000c);
+
+    /* Implementation */
+    border-image: fill 0 var(--overlay);
+  }
+</style>
+
+<style id="demo-styles">
+  div {
+    background: url(https://picsum.photos/id/118/900/600) center/cover;
+    padding: 4em 2em;
+    color: white;
+    max-width: 800px;
+  }
+</style>
