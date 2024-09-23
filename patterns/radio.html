@@ -1,0 +1,59 @@
+<!--
+# Radio
+
+A way to custom-style the <input type="radio"> element
+-->
+
+<label><input type="radio" name="n" value="1" /> One</label>
+<label><input type="radio" name="n" value="2" /> Two</label>
+<label><input type="radio" name="n" value="3" /> Three</label>
+
+<style>
+  input[type="radio"] {
+    /* User settings */
+    --background: transparent;
+    --color: currentColor;
+    --border-weight: 1px;
+    --size: 1.5em;
+    --speed: 200ms;
+
+    /* Implementation */
+    margin: 0;
+    appearance: none;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    border: solid var(--border-weight);
+    background-color: var(--background);
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: center center;
+    accent-color: var(--color);
+    color: var(--color);
+    transition: border-width var(--speed);
+
+    &:checked {
+      border-width: 0.5em;
+      background-color: var(--background);
+    }
+
+    &:not(:disabled) {
+      cursor: pointer;
+    }
+
+    &:disabled {
+      opacity: 0.33;
+      pointer-events: none;
+    }
+  }
+</style>
+
+<style id="demo-styles">
+  label {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin: 1em 0;
+    cursor: pointer;
+  }
+</style>

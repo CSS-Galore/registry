@@ -1,0 +1,72 @@
+<!--
+# Checkbox
+
+A way to custom-style the <input type="checkbox"> element
+-->
+
+<label><input type="checkbox" name="1" value="1" /> One</label>
+<label><input type="checkbox" name="2" value="2" /> Two</label>
+<label><input type="checkbox" name="3" value="3" /> Three</label>
+
+<style>
+  input[type="checkbox"] {
+    /* User settings */
+    --icon: url('data:image/svg+xml;charset=UTF-8,<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M13.92 3c.297 0 .552.109.763.326.211.217.317.48.317.786 0 .307-.107.57-.32.79l-7.56 7.777a1.02 1.02 0 0 1-.76.321 1.03 1.03 0 0 1-.768-.321l-4.28-4.394A1.09 1.09 0 0 1 1 7.495c0-.307.106-.57.317-.787.21-.217.466-.325.764-.325s.555.11.77.33l3.51 3.611 6.79-6.994c.213-.22.47-.33.768-.33Z" /></svg>');
+    --indeterminate-icon: url('data:image/svg+xml;charset=UTF-8,<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H2a1 1 0 0 1-1-1Z" /></svg>');
+    --size: 1.5em;
+    --border-weight: 1px;
+    --background: transparent;
+    --color: currentColor;
+    --icon-color: white;
+    --icon-size: calc(var(--size) * 0.666);
+    --speed: 200ms;
+
+    /* Implementation */
+    appearance: none;
+    width: var(--size);
+    height: var(--size);
+    border: solid var(--border-weight);
+    vertical-align: middle;
+    background-color: var(--background);
+    background-repeat: no-repeat;
+    background-position: center center;
+    color: var(--color);
+    transition: background-color var(--speed);
+
+    &::before {
+      content: "";
+      display: block;
+      mask-repeat: no-repeat;
+      mask-position: center center;
+      mask-size: var(--icon-size) var(--icon-size);
+      width: 100%;
+      height: 100%;
+    }
+
+    &:checked,
+    &:indeterminate {
+      background-color: var(--color);
+
+      &::before {
+        background-color: var(--icon-color);
+      }
+    }
+
+    &:checked::before {
+      mask-image: var(--icon);
+    }
+
+    &:indeterminate::before {
+      mask-image: var(--indeterminate-icon);
+    }
+
+    &:not(:disabled) {
+      cursor: pointer;
+    }
+
+    &:disabled {
+      opacity: 0.33;
+      pointer-events: none;
+    }
+  }
+</style>

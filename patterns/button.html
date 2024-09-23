@@ -1,0 +1,53 @@
+<!--
+# Button
+
+Basic styles to customize a button element
+-->
+
+<button class="button">Click me</button>
+<input class="button" type="button" value="Submit" />
+<input class="button" type="reset" />
+<input class="button" type="submit" />
+<input class="button" type="file" />
+<a href="#" class="button">Click me</a>
+
+<style>
+  .button {
+    &:where(
+      button,
+      input[type="button"],
+      input[type="reset"],
+      input[type="submit"],
+      a
+    ),
+    &:where(input[type="file"])::file-selector-button {
+      /* User settings */
+      --font: 1rem ui-system, sans-serif;
+      --color: currentColor;
+      --background: inherit;
+      --border: solid 1px;
+      --gap: 0.5em;
+
+      /* Implementation */
+      font: var(--font);
+      display: inline-flex;
+      column-gap: var(--gap);
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border: var(--border);
+      padding: var(--gap);
+      text-decoration: none;
+      color: var(--color);
+      background: var(--background);
+      cursor: pointer;
+
+      &:disabled,
+      &[aria-disabled="true"] {
+        cursor: default;
+        opacity: 0.33;
+        pointer-events: none;
+      }
+    }
+  }
+</style>

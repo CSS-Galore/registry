@@ -1,0 +1,39 @@
+<!--
+# Select
+
+A way to custom-style the <select> element
+-->
+
+<select>
+  <option>One</option>
+  <option>Two</option>
+  <option>Three</option>
+</select>
+
+<style>
+  select {
+    /* User settings */
+    --icon: url('data:image/svg+xml;charset=UTF-8,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="m8 9.586 5.293-5.293a1 1 0 1 1 1.414 1.414l-6 6a1 1 0 0 1-1.414 0l-6-6a1 1 0 0 1 1.414-1.414L8 9.586Z" fill="black"/></svg>');
+    --size: 1em;
+    --padding: 0.5em;
+
+    /* Implementation */
+    appearance: none;
+    padding: var(--padding);
+    padding-right: calc(var(--size) + var(--padding));
+    border: solid 1px;
+    background: var(--icon) no-repeat center right var(--padding);
+    background-size: var(--size) var(--size);
+    color: inherit;
+    display: block;
+
+    &:not(:disabled) {
+      cursor: pointer;
+    }
+
+    &:disabled {
+      opacity: 0.33;
+      pointer-events: none;
+    }
+  }
+</style>
