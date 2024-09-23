@@ -1,5 +1,6 @@
 {
   "tasks": {
-    "build": "deno run -RW index.js && deno fmt --unstable-html --unstable-css ."
+    "build": "deno run -RW index.js && deno fmt --unstable-html --unstable-css .",
+    "dev": "deno task build && deno run -NRS jsr:@std/http/file-server"
   }
 }

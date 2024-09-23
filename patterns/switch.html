@@ -1,0 +1,53 @@
+<!--
+# Switch button
+
+A way to create a switch from a <button role="switch"> element
+-->
+
+<button
+  role="switch"
+  onclick="this.setAttribute('aria-checked', this.getAttribute('aria-checked') === 'true' ? 'false' : 'true')"
+>
+  Click me
+</button>
+
+<style>
+  button[role="switch"] {
+    /* User settings */
+    --color-off: gray;
+    --color-on: currentColor;
+    --icon: url('data:image/svg+xml;charset=UTF-8,<svg width="16" height="16" viewBox="0 0 16 16" fill="white" xmlns="http://www.w3.org/2000/svg"><circle cx="8" cy="8" r="8"/></svg>');
+    --size: 1.5em;
+    --padding: 2px;
+    --speed: 200ms;
+
+    /* Implementation */
+    padding: 0;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    column-gap: 1em;
+    background: none;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      color: var(--color-off);
+      display: block;
+      height: var(--size);
+      aspect-ratio: 5/3;
+      border-radius: var(--size);
+      padding: var(--padding);
+      flex: 0 0 auto;
+      background: var(--icon) no-repeat var(--padding) center currentColor;
+      background-size: var(--size) var(--size);
+      transition-property: background-color, background-position;
+      transition-duration: var(--speed);
+    }
+
+    &[aria-checked="true"]::before {
+      color: var(--color-on);
+      background-position-x: right var(--padding);
+    }
+  }
+</style>

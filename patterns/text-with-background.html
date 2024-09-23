@@ -1,0 +1,23 @@
+<!--
+# Fill text with images
+
+A way to use an image instead of plain color.
+-->
+
+<h1 class="text-with-background">
+  Hello world
+</h1>
+
+<style>
+  .text-with-background {
+    /* User settings */
+    --fill: linear-gradient(red, blue);
+    --color: currentColor;
+
+    /* Implementation */
+    background: var(--fill);
+    background-clip: text;
+    color: transparent;
+    background-color: var(--color);
+  }
+</style>
