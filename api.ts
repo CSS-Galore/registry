@@ -53,7 +53,7 @@ function parse(name: string, content: string): Pattern {
   const { document } = parseHTML(content);
   const description = content.match(/<!--([\s\S]+)-->/m)?.[1] || "";
   const el = document.querySelector("style");
-  const style = el ? outdent.string(el.textContent.trim()) : "";
+  const style = el ? outdent.string(el.textContent) : "";
   return { name, description, content, style };
 }
 
