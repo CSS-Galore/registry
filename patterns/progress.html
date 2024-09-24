@@ -4,7 +4,8 @@
 Basic styles to normalize the appearance of the `<progress>` element
 -->
 
-<progress max="100"></progress>
+<p><progress max="100"></progress> Indeterminate progress</p>
+<p><progress value="33" max="100"></progress> Value 33%</p>
 
 <style>
   progress {
@@ -19,7 +20,6 @@ Basic styles to normalize the appearance of the `<progress>` element
     /* Implementation */
     border: solid var(--border-weigth) var(--color);
     height: var(--height);
-    display: block;
     background: var(--background);
 
     &:indeterminate {

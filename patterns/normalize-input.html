@@ -1,0 +1,92 @@
+<!--
+# Normalize Inputs
+
+Basic normalize CSS for inputs and form-related stuff
+
+Some taken from https://github.com/sindresorhus/modern-normalize
+-->
+<input type="date" /><br />
+<input type="datetime-local" /><br />
+<input type="email" /><br />
+<input type="month" /><br />
+<input type="number" /><br />
+<input type="password" /><br />
+<input type="tel" /><br />
+<input type="text" /><br />
+<input type="time" /><br />
+<input type="url" /><br />
+<input type="week" /><br />
+<textarea></textarea><br />
+
+<style>
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+  }
+  button,
+  [type="button"],
+  [type="reset"],
+  [type="submit"] {
+    -webkit-appearance: button;
+  }
+  legend {
+    padding: 0;
+  }
+  progress {
+    vertical-align: baseline;
+  }
+  ::-webkit-inner-spin-button,
+  ::-webkit-outer-spin-button {
+    height: auto;
+  }
+  [type="search"] {
+    -webkit-appearance: textfield; /* 1 */
+    outline-offset: -2px; /* 2 */
+  }
+  ::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+  ::-webkit-file-upload-button {
+    -webkit-appearance: button; /* 1 */
+    font: inherit; /* 2 */
+  }
+
+  input[type="date"],
+  input[type="datetime-local"],
+  input[type="email"],
+  input[type="month"],
+  input[type="number"],
+  input[type="password"],
+  input[type="tel"],
+  input[type="text"],
+  input[type="time"],
+  input[type="url"],
+  input[type="week"],
+  input[type="search"],
+  textarea {
+    color: inherit;
+    border: solid 1px currentColor;
+    background: inherit;
+    box-sizing: border-box;
+
+    &:disabled {
+      opacity: 0.33;
+      pointer-events: none;
+    }
+    &::placeholder {
+      color: currentColor;
+      opacity: 0.5;
+    }
+  }
+  textarea {
+    resize: vertical;
+    min-height: 3em;
+    -webkit-appearance: initial;
+  }
+</style>
