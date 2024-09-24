@@ -12,12 +12,12 @@ Based on https://css-tricks.com/the-focus-visible-trick/
 <style>
   /* Implementation */
   /* Focusing with a keyboard. */
-  button:focus-visible {
+  :focus-visible {
     outline: 4px dashed black;
   }
 
   /* Focusing with a mouse, touch, or stylus. */
-  button:focus:not(:focus-visible) {
+  :focus:not(:focus-visible) {
     outline: none;
     box-shadow: 1px 1px 10px rgba(1, 1, 0, 0.7);
   }

@@ -5,6 +5,7 @@ A way to create a switch from a <button role="switch"> element
 -->
 
 <button
+  class="host"
   role="switch"
   onclick="this.setAttribute('aria-checked', this.getAttribute('aria-checked') === 'true' ? 'false' : 'true')"
 >
@@ -12,7 +13,7 @@ A way to create a switch from a <button role="switch"> element
 </button>
 
 <style>
-  button[role="switch"] {
+  button[role="switch"].host {
     /* User settings */
     --color-off: gray;
     --color-on: currentColor;
