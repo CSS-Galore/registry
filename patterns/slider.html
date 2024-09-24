@@ -24,6 +24,12 @@ A way to custom-style the <input type="range"> element
     height: var(--size);
     cursor: pointer;
 
+    &:disabled {
+      opacity: 0.33;
+      pointer-events: none;
+    }
+
+    /* Webkit */
     &::-webkit-slider-runnable-track {
       background: var(--color);
       border: 0;
@@ -57,11 +63,7 @@ A way to custom-style the <input type="range"> element
       }
     }
 
-    &:disabled {
-      opacity: 0.33;
-      pointer-events: none;
-    }
-
+    /* Moz */
     &::-moz-range-track {
       background: var(--color);
       border: 0;

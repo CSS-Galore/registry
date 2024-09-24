@@ -1,0 +1,66 @@
+<!--
+# Progress
+
+Basic styles to normalize the appearance of the `<progress>` element
+-->
+
+<progress max="100"></progress>
+
+<style>
+  progress {
+    /* User settings */
+    --color: currentColor;
+    --color-indeterminate: var(--color);
+    --speed: 1s;
+    --background: transparent;
+    --border-weigth: 1px;
+    --height: 1em;
+
+    /* Implementation */
+    border: solid var(--border-weigth) var(--color);
+    height: var(--height);
+    display: block;
+    background: var(--background);
+
+    &:indeterminate {
+      background: linear-gradient(
+        var(--color-indeterminate),
+        var(--color-indeterminate)
+      ) no-repeat;
+      background-size: 25% 100%;
+      animation: progressIndeterminate var(--speed) linear infinite alternate;
+    }
+
+    /* Webkit */
+    &::-webkit-progress-value {
+      height: calc(100% + var(--border-weigth)); /* Chrome for Android fix */
+      background: var(--color);
+      top: calc(var(--border-weigth) * -1); /* Chrome for Android fix */
+      position: relative; /* Chrome for Android fix */
+    }
+
+    &::-webkit-progress-bar {
+      background: var(--background);
+    }
+
+    /* Moz */
+    &::-moz-progress-bar {
+      background: var(--color);
+    }
+
+    &:indeterminate {
+      &::-moz-progress-bar {
+        background: var(--background);
+      }
+    }
+  }
+
+  @keyframes progressIndeterminate {
+    from {
+      background-position-x: 0;
+    }
+    to {
+      background-position-x: 100%;
+    }
+  }
+</style>
