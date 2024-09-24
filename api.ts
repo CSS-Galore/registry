@@ -6,12 +6,18 @@ const patterns = Array.from(Deno.readDirSync("patterns")).map((file) =>
 
 export default {
   fetch(request: Request): Response {
+    const isJSON = request.headers.get("accept")?.includes("application/json");
     const url = new URL(request.url);
     const path = url.pathname;
 
     if (path === "/") {
       const query = url.searchParams.get("q") || "";
-      return Response.json(search(query));
+      if (isJSON) {
+        return Response.json(search(query));
+      }
+      return new Response(indexHTML(patterns), {
+        headers: { "content-type": "text/html" },
+      });
     }
 
     const pattern = get(path.replace("/", ""));
@@ -20,7 +26,14 @@ export default {
       return Response.json({}, { status: 404 });
     }
 
-    return Response.json(pattern);
+    if (isJSON) {
+      return Response.json(pattern);
+    }
+
+    const html = Deno.readTextFileSync(`patterns/${pattern.name}.html`);
+    return new Response(html, {
+      headers: { "content-type": "text/html" },
+    });
   },
 };
 
@@ -48,4 +61,22 @@ interface Pattern {
   description?: string;
   style: string;
   content: string;
+}
+
+function indexHTML(names: string[]): string {
+  return `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Patterns</title>
+</head>
+<body>
+  <h1>Patterns</h1>
+  <ul>
+    ${names.map((name) => `<li><a href="./${name}">${name}</a></li>`).join("")}
+  </ul>
+</body>
+</html>
+  `;
 }
