@@ -1,4 +1,5 @@
 import { parseHTML } from "npm:linkedom@0.18.5";
+import outdent from "https://deno.land/x/outdent@v0.8.0/mod.ts";
 
 const patterns = Array.from(Deno.readDirSync("patterns")).map((file) =>
   file.name.replace(".html", "")
@@ -52,7 +53,7 @@ function parse(name: string, content: string): Pattern {
   const { document } = parseHTML(content);
   const description = content.match(/<!--([\s\S]+)-->/m)?.[1] || "";
   const el = document.querySelector("style");
-  const style = el ? el.textContent.trim() : "";
+  const style = el ? outdent.string(el.textContent.trim()) : "";
   return { name, description, content, style };
 }
 
