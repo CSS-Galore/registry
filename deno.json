@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "build": "deno fmt --unstable-html --unstable-css . && deno run -RW build.ts"
+    "build": "deno fmt --unstable-html --unstable-css --unstable-yaml . && deno run -RW build.ts"
   },
   "lock": false
 }
