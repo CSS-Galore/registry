@@ -6,3 +6,9 @@
 from = "/"
 to = "api.json"
 status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET"
