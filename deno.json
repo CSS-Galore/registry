@@ -1,7 +1,6 @@
 {
   "tasks": {
-    "build": "deno fmt --unstable-html --unstable-css .",
-    "dev": "deno task build && deno serve -R api.ts"
+    "build": "deno fmt --unstable-html --unstable-css . && deno run -RW build.ts"
   },
   "lock": false
 }
