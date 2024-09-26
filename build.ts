@@ -46,6 +46,13 @@ for (const dir of Deno.readDirSync(baseDir)) {
 
     const el = document.querySelector("style");
     const css = el ? outdent.string(el.textContent) : "";
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = `./${name}.css`;
+    el.replaceWith(link);
+    document.querySelectorAll("style").forEach((el: any) => {
+      el.removeAttribute("demo");
+    });
 
     try {
       Deno.mkdirSync(`dist/${info.name}`, { recursive: true });
@@ -53,7 +60,12 @@ for (const dir of Deno.readDirSync(baseDir)) {
       // Directory already exists
     }
 
-    Deno.writeTextFileSync(`dist/${info.name}/${name}.html`, content);
+    // Export the code
+    Deno.writeTextFileSync(
+      `dist/${info.name}/${name}.html`,
+      document.toString(),
+    );
+    Deno.writeTextFileSync(`dist/${info.name}/${name}.css`, css);
 
     info.modules.push({
       name,
