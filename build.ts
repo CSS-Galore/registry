@@ -42,7 +42,7 @@ for (const dir of Deno.readDirSync(baseDir)) {
     const name = file.name.replace(".html", "");
 
     const { document } = parseHTML(content) as any;
-    const description = content.match(/<!--([\s\S]+)-->/m)?.[1] || "";
+    const description = (content.match(/<!--([\s\S]+)-->/m)?.[1] || "").trim();
 
     const el = document.querySelector("style");
     const css = el ? outdent.string(el.textContent) : "";
