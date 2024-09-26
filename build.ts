@@ -70,7 +70,6 @@ for (const dir of Deno.readDirSync(baseDir)) {
     info.modules.push({
       name,
       description,
-      css,
     });
   }
 
@@ -96,5 +95,4 @@ interface Author {
 interface Module {
   name: string;
   description: string;
-  css: string;
 }
