@@ -1,6 +1,6 @@
 # CSS Galore package registry
 
-Code is grouped by packages, every package can have several modules.
+Code is grouped by packages, every package has one or more modules.
 
 ```ts
 interface Package {
