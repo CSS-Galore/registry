@@ -2,7 +2,7 @@
 
 Code is grouped by packages, every package can have several modules.
 
-```js
+```ts
 interface Package {
   name: string;
   description: string;
@@ -18,6 +18,7 @@ interface Author {
 interface Module {
   name: string;
   description: string;
-  css: string;
 }
 ```
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) to learn how to add more packages.
