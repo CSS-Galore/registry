@@ -6,13 +6,7 @@ Code is grouped by packages, every package has one or more modules.
 interface Package {
   name: string;
   description: string;
-  author: Author | Author[];
   modules: Module[];
-}
-
-interface Author {
-  name: string;
-  url: string;
 }
 
 interface Module {

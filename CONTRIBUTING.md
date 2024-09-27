@@ -10,15 +10,15 @@ requests.
 Packages are in the `packages` folder. Every folder is a package and the name
 should consist only in letters, numbers and hyphens.
 
-Packages must have a `package.yaml` file with the description and author (or
-authors) of the package.
+Packages must have a `README.md` file with the description and other interesting
+info.
 
-Every package must have one or more modules. Every module is a `.html` file with
-the followign structure:
+Every package must have one or more modules. Modules are `.html` files with the
+followign structure:
 
 ```html
 <!--
-Comment with the module description in plaintext or markdown format
+Comment with the module description in markdown format
 -->
 
 <p>HTML elements for the demo</p>
