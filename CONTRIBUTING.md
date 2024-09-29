@@ -1,11 +1,15 @@
 # Contributing Guide
 
-## How to contribute
-
 This is a collaborative effort. We welcome all contributions submitted as pull
 requests.
 
-### Add new packages
+## We want your feedback
+
+Feedback is the most valuable help that we can have at this moment. Please, go
+to https://github.com/CSS-Galore/registry/issues and leave comments with your
+opinion.
+
+## Add new packages
 
 Packages are in the `packages` folder. Every folder is a package and the name
 should consist only in letters, numbers and hyphens.
