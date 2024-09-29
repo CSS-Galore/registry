@@ -45,4 +45,5 @@ and it's not centralized (the repo can be forked at any time). This model works
 fine for other big projects like
 [Homebrew](https://github.com/Homebrew/homebrew-core).
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) to learn how to add more packages.
+See [CONTRIBUTING.md](CONTRIBUTING.md) to learn how to contribute with this
+project.
